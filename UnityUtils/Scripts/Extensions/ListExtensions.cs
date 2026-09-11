@@ -56,7 +56,7 @@ namespace UnityUtils {
             while (count > 1) {
                 --count;
                 int index = rng.Next(count + 1);
-                (list[index], list[count]) = (list[count], list[index]);
+                list.Swap(index, count);
             }
             return list;
         }
