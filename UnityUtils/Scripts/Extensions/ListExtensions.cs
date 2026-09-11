@@ -51,7 +51,7 @@ namespace UnityUtils {
         /// <typeparam name="T">The type of the elements in the list.</typeparam>
         /// <returns>The shuffled list.</returns>
         public static IList<T> Shuffle<T>(this IList<T> list) {
-            if (rng == null) rng = new Random();
+            rng ??= new Random();
             int count = list.Count;
             while (count > 1) {
                 --count;
