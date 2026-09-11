@@ -25,17 +25,6 @@ namespace UnityUtils {
             Vector3.Dot(vector, direction.normalized);
 
         /// <summary>
-        /// Removes the component of a vector that is in the direction of a given vector.
-        /// </summary>
-        /// <param name="vector">The vector from which to remove the component.</param>
-        /// <param name="direction">The direction vector whose component should be removed.</param>
-        /// <returns>The vector with the specified direction removed.</returns>
-        public static Vector3 RemoveDotVector(Vector3 vector, Vector3 direction) {
-            direction.Normalize();
-            return vector - direction * Vector3.Dot(vector, direction);
-        }
-
-        /// <summary>
         /// Extracts and returns the component of a vector that is in the direction of a given vector.
         /// </summary>
         /// <param name="vector">The vector from which to extract the component.</param>
@@ -44,6 +33,16 @@ namespace UnityUtils {
         public static Vector3 ExtractDotVector(Vector3 vector, Vector3 direction) {
             direction.Normalize();
             return direction * Vector3.Dot(vector, direction);
+        }
+
+        /// <summary>
+        /// Removes the component of a vector that is in the direction of a given vector.
+        /// </summary>
+        /// <param name="vector">The vector from which to remove the component.</param>
+        /// <param name="direction">The direction vector whose component should be removed.</param>
+        /// <returns>The vector with the specified direction removed.</returns>
+        public static Vector3 RemoveDotVector(Vector3 vector, Vector3 direction) {
+            return vector - Vector3.ExtractDotVector(vector, direction);
         }
 
         /// <summary>
